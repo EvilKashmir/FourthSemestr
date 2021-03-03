@@ -18,8 +18,6 @@
 </head>
 <body>
 <form method="post" action="/signIn">
-  <a href='${s:mvcUrl("DC#change").arg(0, "ru_RU").build()}'>Рус</a> <a href='${s:mvcUrl("DC#change").arg(0, "en_US").build()}'>Eng</a>
-  <h3><s:message code="signInText"/></h3>
   <input placeholder="email" class="input-text" name="email" type="text">
   <input placeholder="password" class="input-text" name="password" type="password">
   <input type="submit">
