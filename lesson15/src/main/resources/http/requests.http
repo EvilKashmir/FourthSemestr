@@ -1,0 +1,31 @@
+
+GET http://localhost/api/task
+
+###
+
+POST http://localhost/api/task
+Content-Type: application/json
+
+{
+  "title": "Test title",
+  "description": "Test description "
+}
+
+###
+
+GET http://localhost/api/task/1
+
+###
+
+PUT http://localhost/api/task/1
+Content-Type: application/json
+
+{
+  "title": "Update title",
+  "description": "Update description"
+}
+
+###
+
+DELETE http://localhost/api/task/1
+
