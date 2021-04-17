@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.itis.dto.TaskDto;
-import ru.itis.exceptions.TaskNotFoundException;
 import ru.itis.services.TaskService;
 
 import java.util.List;
@@ -22,12 +21,17 @@ public class TaskController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<TaskDto> getTask(@PathVariable Long id) throws TaskNotFoundException {
+    public ResponseEntity<TaskDto> getTask(@PathVariable Long id) {
         return ResponseEntity.ok(taskService.getTask(id));
     }
 
-    @PostMapping
-    public ResponseEntity<TaskDto> saveTask(@RequestBody TaskDto taskDto) {
+    @PostMapping(consumes = "application/x-www-form-urlencoded")
+    public ResponseEntity<TaskDto> saveTaskHttp(TaskDto taskDto) {
+        return ResponseEntity.ok(taskService.saveTask(taskDto));
+    }
+
+    @PostMapping(consumes = "application/json")
+    public ResponseEntity<TaskDto> saveTaskJson(@RequestBody TaskDto taskDto) {
         return ResponseEntity.ok(taskService.saveTask(taskDto));
     }
 
@@ -38,7 +42,7 @@ public class TaskController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<TaskDto> updateTasks(@PathVariable Long id, @RequestBody TaskDto taskDto) throws TaskNotFoundException{
+    public ResponseEntity<TaskDto> updateTasks(@PathVariable Long id, @RequestBody TaskDto taskDto) {
         return ResponseEntity.ok(taskService.updateTask(id, taskDto));
     }
 }

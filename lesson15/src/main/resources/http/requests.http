@@ -7,9 +7,16 @@ POST http://localhost/api/task
 Content-Type: application/json
 
 {
-  "title": "Test title",
-  "description": "Test description "
+  "title": "Json title",
+  "description": "Json description "
 }
+
+###
+
+POST http://localhost/api/task
+Content-Type: application/x-www-form-urlencoded
+
+title=httpTitle&description=httpDescription
 
 ###
 

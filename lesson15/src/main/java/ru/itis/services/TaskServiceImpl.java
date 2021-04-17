@@ -4,7 +4,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.itis.dto.TaskDto;
-import ru.itis.exceptions.TaskNotFoundException;
 import ru.itis.models.Task;
 import ru.itis.repositories.TaskRepository;
 
